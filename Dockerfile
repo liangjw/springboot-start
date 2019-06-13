@@ -2,7 +2,7 @@ FROM openjdk:8
 
 ENV JAR_PATH app.jar
 
-ADD app.jar /home/app.jar
+ADD target/Chapter1-1.0.0.jar /home/app.jar
 WORKDIR /home
 
 CMD java -jar app.jar
