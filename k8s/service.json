@@ -9,7 +9,7 @@
    },
    "spec":{
        "selector":{
-           "app": "${JOB_NAME}"
+           "k8s-app": "${JOB_NAME}"
        },
        "ports":[
            {"port":"8080"}
