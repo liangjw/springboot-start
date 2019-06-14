@@ -3,14 +3,14 @@
    "kind":"Service",
    "metadata":{
       "namespace":"kube-system",
-      "name":"${JOB_NAME}-service",
+      "name":"${APP_NAME}-service",
       "labels":{
-          "service":"${JOB_NAME}"
+          "k8s-service":"${APP_NAME}"
       }
    },
    "spec":{
        "selector":{
-           "k8s-app": "${JOB_NAME}"
+           "k8s-app": "${APP_NAME}"
        },
        "ports":[
            {"port":8080,"targetPort":8080}
