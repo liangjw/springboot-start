@@ -1,0 +1,66 @@
+{
+  "kind": "Deployment",
+  "apiVersion": "extensions/v1beta1",
+  "metadata": {
+    "name": "test",
+    "namespace": "kube-system",
+    "labels": {
+      "k8s-app": "test"
+    }
+  },
+  "spec": {
+    "replicas": 1,
+    "selector": {
+      "matchLabels": {
+        "k8s-app": "test"
+      }
+    },
+    "template": {
+      "metadata": {
+        "name": "test",
+        "labels": {
+          "k8s-app": "test"
+        }
+      },
+      "spec": {
+        "containers": [
+          {
+            "name": "tomcat",
+            "image": "tomcat:7",
+            "resources": {},
+            "terminationMessagePath": "/dev/termination-log",
+            "terminationMessagePolicy": "File",
+            "imagePullPolicy": "IfNotPresent",
+            "securityContext": {
+              "privileged": false,
+              "procMount": "Default"
+            },
+            "ports":
+              [{ "containerPort": 8080, 
+                "targetPort": 8080
+              }],
+              "volumeMounts":[
+                 
+              ]
+          }
+        ],
+        "volumes":[],
+        "type": "NodePort",
+        "restartPolicy": "Always",
+        "terminationGracePeriodSeconds": 30,
+        "dnsPolicy": "ClusterFirst",
+        "securityContext": {},
+        "schedulerName": "default-scheduler"
+      }
+    },
+    "strategy": {
+      "type": "RollingUpdate",
+      "rollingUpdate": {
+        "maxUnavailable": "25%",
+        "maxSurge": "25%"
+      }
+    },
+    "revisionHistoryLimit": 10,
+    "progressDeadlineSeconds": 600
+  }
+}
