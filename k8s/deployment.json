@@ -26,7 +26,7 @@
         "containers": [
           {
             "name": "tomcat",
-            "image": "tomcat:7",
+            "image": "tomcat:192.168.0.141:5000/hfocean/${BUILD_DISPLAY_NAME}/${BUILD_NUMBER}",
             "resources": {},
             "terminationMessagePath": "/dev/termination-log",
             "terminationMessagePolicy": "File",
