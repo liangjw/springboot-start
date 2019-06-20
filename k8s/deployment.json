@@ -28,8 +28,6 @@
             "name": "app",
             "image": "hfdockerhub.com.cc:1443/hfocean/jenkins-${APP_NAME}:${BUILD_NUMBER}",
             "resources": {},
-            "terminationMessagePath": "/dev/termination-log",
-            "terminationMessagePolicy": "File",
             "imagePullPolicy": "IfNotPresent",
             "securityContext": {
               "privileged": false,
